@@ -1,0 +1,9 @@
+# This file was automatically created by BAMOE Canvas. Please don't modify it.
+bpmnDestinationFolder: src/main/resources
+dmnDestinationFolder: src/main/resources
+gitRepositoryGitRef: 9.2.0-ibm-0004-quarkus-dmn
+gitRepositoryUrl: https://github.com/ibm/bamoe-canvas-quarkus-accelerator
+iconUrl: images/canvas_accelerator_logo_quarkus_dmn.png
+name: Quarkus (DMN)
+otherFilesDestinationFolder: src/main/resources
+appliedAt: '2025-04-15T11:14:20.524Z'
