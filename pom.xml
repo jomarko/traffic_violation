@@ -7,17 +7,28 @@
   <name>Traffic_Violation</name>
   <description>DMN Traffic Violation project</description>
   <dependencies>
+
+    <dependency>
+      <groupId>com.redhat.ba</groupId>
+      <artifactId>ba-platform-bom</artifactId>
+      <version>8.0.7.redhat-00004</version>
+      <type>pom</type>
+    </dependency>
+
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-api</artifactId>
       <version>7.67.2.Final-redhat-00034</version>
-      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-internal</artifactId>
       <version>7.67.2.Final-redhat-00034</version>
-      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-scenario-simulation-backend</artifactId>
+      <version>7.67.2.Final-redhat-00034</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -30,6 +41,24 @@
       <artifactId>xstream</artifactId>
       <version>1.4.10</version>
       <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kie.server</groupId>
+      <artifactId>kie-server-client</artifactId>
+      <version>7.67.2.Final-redhat-00034</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>jakarta.activation-api</artifactId>
+          <groupId>jakarta.activation</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+          <artifactId>jakarta.activation-api</artifactId>
+          <groupId>jakarta.activation</groupId>
+          <version>1.2.2.redhat-00005</version>
     </dependency>
   </dependencies>
   <build>
