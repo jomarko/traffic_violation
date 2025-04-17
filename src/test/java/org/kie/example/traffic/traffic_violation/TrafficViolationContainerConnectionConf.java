@@ -3,6 +3,8 @@ package org.kie.example.traffic.traffic_violation;
 import java.util.List;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.kie.dmn.api.core.DMNContext;
 import org.kie.dmn.api.core.DMNResult;
@@ -15,11 +17,14 @@ import org.kie.server.client.KieServicesClient;
 import org.kie.server.client.KieServicesConfiguration;
 import org.kie.server.client.KieServicesFactory;
 
-public class MyKieServerConnectionConf {
+public class TrafficViolationContainerConnectionConf {
 
   private static final String URL = "http://localhost:8080/kie-server/services/rest/server";
   private static final String USER = "kieadmin";
   private static final String PASSWORD = "kieadmin1234;";
+  private static final String CONTAINER_ID = "traffic-violation_1.0.0-SNAPSHOT";
+  private static final String DMN_NAMESPACE = "https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF";
+  private static final String DMN_MODEL_NAME = "Traffic Violation";
 
   private static final MarshallingFormat FORMAT = MarshallingFormat.JSON;
 
@@ -33,7 +38,10 @@ public class MyKieServerConnectionConf {
 
     //If you use custom classes, such as Obj.class, add them to the configuration.
     // Set<Class<?>> extraClassList = new HashSet<Class<?>>();
-    // extraClassList.add(Obj.class);
+    // extraClassList.add(Map.class);
+    // extraClassList.add(HashMap.class);
+    // extraClassList.add(String.class);
+    // extraClassList.add(java.math.BigDecimal.class);
     // conf.addExtraClasses(extraClassList);
 
     conf.setMarshallingFormat(FORMAT);
@@ -41,8 +49,9 @@ public class MyKieServerConnectionConf {
     dmnClient = kieServicesClient.getServicesClient(DMNServicesClient.class);
   }
 
-  public static ServiceResponse<DMNResult> evaluateDMN(String containerId, String dmnNamespace, String dmnModelName, DMNContext context) {
-    return dmnClient.evaluateAll(containerId, dmnNamespace, dmnModelName, context);
+  public static ServiceResponse<DMNResult> evaluateTrafficViolationDmn(final DMNContext context) {
+    // return dmnClient.evaluateAll(CONTAINER_ID, DMN_NAMESPACE, DMN_MODEL_NAME, context);
+    return dmnClient.evaluateAll(CONTAINER_ID, context);
   }
   // public void disposeAndCreateContainer() {
   //   System.out.println("== Disposing and creating containers ==");
